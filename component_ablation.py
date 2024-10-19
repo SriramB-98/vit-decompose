@@ -23,8 +23,13 @@ with open("./templates.txt", "r") as fp:
 
 imgnet_path = None # replace with path to ImageNet dataset
 
+imgnet_path = '/fs/cml-datasets/ImageNet/ILSVRC2012'
+
+if imgnet_path is None:
+    raise ValueError("Please provide path to ImageNet dataset")
+
 num_workers = 4 * torch.cuda.device_count()
-num_batches = 100
+num_samples = 10000
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 linecolors = ["blue", "red", "green", "orange", "purple", "brown", "pink", "gray", "cyan", "magenta"]
@@ -75,12 +80,13 @@ for lc, model_key in zip(linecolors, model_keys):
     _ = model.eval()
 
     dataset = ImageNet(imgnet_path, split="val", transform=model.preprocess)
+    dataset = torch.utils.data.Subset(dataset, list(range(1000)))
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers)
 
     comp_names, embeds, labels = get_decomposed_embeds(
         model,
         dataloader,
-        num_batches,
+        num_samples//batch_size,
         device,
         heads=False,
         load_file=f"./saved_outputs/{model_descr}_imgnet_layer_decomposed_embeds.pt",

@@ -23,9 +23,12 @@ model_keys = ["DeiT", "CLIP", "DINO", "DINOv2", "SWIN", "MaxVit"]
 
 probe_img_name = 'handbag' #striped_shirt_beach
 feats = ['color', 'pattern', 'fabric'] 
-imgnet_path = None # replace with path to ImageNet dataset
 
-num_batches = 100
+imgnet_path = None # replace with path to ImageNet dataset
+if imgnet_path is None:
+    raise ValueError("Please provide path to ImageNet dataset")
+
+num_samples = 10000
 num_imgs = 3
 visualize = True
 
@@ -188,7 +191,7 @@ for model_key in model_keys:
     comp_names, embeds_decomp, labels = get_decomposed_embeds(
         model,
         dataloader,
-        num_batches,
+        num_samples//batch_size,
         device,
         load_file=f"./saved_outputs/{model_descr}_imgnet_decomposed_embeds.pt",
     )

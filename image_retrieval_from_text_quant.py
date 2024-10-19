@@ -17,6 +17,8 @@ set_seed(0)
 model_keys = ["DeiT", "DINO", "DINOv2", "SWIN", "MaxVit"] #
 save_path = './saved_plots/img_retrieval_from_text.csv'
 imgnet_path = None # replace with path to ImageNet dataset
+if imgnet_path is None:
+    raise ValueError("Please provide path to ImageNet dataset")
 
 num_feats = 4
 

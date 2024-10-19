@@ -16,6 +16,8 @@ from helpers.interpret_utils import *
 set_seed(0)
 
 imgnet_path = None # replace with path to ImageNet dataset
+if imgnet_path is None:
+    raise ValueError("Please provide path to ImageNet dataset")
 
 model_keys = ["DeiT", "CLIP", "DINO", "DINOv2", "SWIN", "MaxVit"] #
 
@@ -40,16 +42,6 @@ def get_imgs_across_heads(score_list, num_imgs=6):
         img_list.append(torch.stack([dataset[i][0] for i in inds]))
     return torch.stack(img_list)
 
-# feat_desc_dict = {
-#     'color': ['blue', 'green', 'red', 'yellow', 'black', 'white'],
-#     'texture': ['rough', 'smooth', 'furry', 'sleek', 'slimy', 'spiky', 'glossy'],  # 'glossy' is commented out
-#     'person': ['face', 'head', 'man', 'woman', 'human', 'arms', 'legs'],
-#     'location': ['sea', 'beach', 'forest', 'desert', 'city', 'sky', 'marsh'],
-#     'pattern': ['spotted', 'striped', 'polka dot', 'plain', 'checkered'],
-#     'shape': ['triangular', 'rectangular', 'circular', 'octagon'],
-#     'animal': ['camel', 'elephant', 'giraffe', 'lion', 'tiger', 'zebra', 'cheetah'],
-# }
- 
 feat_desc_dict = {
     "color": ["blue color", "green color", "red color", "yellow color", "black color", "white color"],
     "texture": [

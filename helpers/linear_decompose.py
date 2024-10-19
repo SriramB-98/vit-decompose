@@ -688,7 +688,7 @@ def get_value(node, metadata):
     name = node.name()
     if name == 'torch::autograd::AccumulateGrad':
         return node.variable.detach()
-    elif name[:-1] == 'ReluBackward' or name[:-1] == 'SoftmaxBackward' or name[:-1] == 'SigmoidBackward':
+    elif name[:-1] in ['ReluBackward', 'SoftmaxBackward', 'SafeSoftmaxBackward', 'SigmoidBackward']:
         return node._saved_result.detach()
     elif name[:-1] == 'GeluBackward':
         return F.gelu(node._saved_self, approximate=node._saved_approximate).detach()
