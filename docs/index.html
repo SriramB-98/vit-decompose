@@ -1,10 +1,661 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <!-- <meta name="description" content="DESCRIPTION META TAG"> -->
+
+    <meta property='og:title' content='Decomposing and Interpreting Image Representations via Text in ViTs Beyond CLIP. arXiv 2024.'/>
+    <meta property='og:url' content='https://github.com/SriramB-98/vit-decompose'/>
+    <meta property="og:image" content="static/images/banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+    <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png"> -->
+    <!-- <meta name="twitter:card" content="summary_large_image"> -->
+    <!-- Keywords for your paper to be indexed by-->
+    <!-- <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Decomposing and Interpreting Image Representations via Text in ViTs Beyond CLIP</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+    rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/tab_gallery.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+    <link rel="stylesheet" href="juxtapose/css/juxtapose.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/magnifier.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/menlo" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/image_card_fader.css">
+    <link rel="stylesheet" href="./static/css/image_card_slider.css">
+</head>
+
 <body>
+  <section class="hero banner">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Decomposing and Interpreting Image Representations via Text in ViTs Beyond CLIP</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"></span>
+              <a href="http://www.sriram.live">Sriram Balasubramanian</a>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://samyadeepbasu.github.io">Samyadeep Basu</a>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://www.cs.umd.edu/~sfeizi/">Soheil Feizi</a>
+            </span>
+          </div>
 
-<h1>My First Heading</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Maryland, College Park</span>
+          </div>
 
-<p>My first paragraph.</p>
+          <div class="is-size-5 publication-venue">
+            Proceedings of the Thirty-eighth Annual Conference on Neural Information Processing Systems<br>NeurIPS 2024
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://openreview.net/forum?id=Vhh7ONtfvV"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2406.01583"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/SriramB-98/vit-decompose"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Github</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="./static/slides/vit-decompose-poster.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Poster</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="#bibtex"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-obp"></i>
+                  </span>
+                  <span>BibTex</span>
+                </a>
+              </span> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section">
+  <div class="container is-max-desktop"> -->
+    <!-- Abstract. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent work has explored how individual components of the CLIP-ViT model contribute to the final representation by leveraging the shared image-text representation space of CLIP. These components, such as attention heads and MLPs, have been shown to capture distinct image features like shape, color or texture. However, understanding the role of these components in arbitrary vision transformers (ViTs) is challenging. To this end, we introduce a general framework which can identify the roles of various components in ViTs beyond CLIP. Specifically, we (a) automate the decomposition of the final representation into contributions from different model components, and (b) linearly map these contributions to CLIP space to interpret them via text. Additionally, we introduce a novel scoring function to rank components by their importance with respect to specific features. Applying our framework to various ViT variants (e.g. DeiT, DINO, DINOv2, Swin, MaxViT), we gain insights into the roles of different components concerning particular image features. These insights facilitate applications such as image retrieval using text descriptions or reference images, visualizing token importance heatmaps, and mitigating spurious correlations.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Abstract. -->
+<!-- 
+  </div>
+</section> -->
+
+<section class="section">
+  
+    <!--/ Matting. -->
+    <div class="container is-max-desktop">
+    
+    <!-- Latent space editing applications -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered"> Decompose, Map, and Interpret any ViT ! </h2>
+
+        <!-- Prompt Interpolation image -->
+        
+        <div class="content has-text-centered">
+            <img src="./static/images/rep_decompose.png" width="59%">
+            <img src="./static/images/result_snapshot.png" width="39%">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Vision transformers (ViTs) are now the go-to architecture for vision-based foundation models, but they  may be challenging to interpret and may exhibit unexpected behaviors. Gandelsman et al. were able to interpret CLIP-ViT components using text, but how do we interpret arbitrary ViTs which may have different architectures (SWIN, MaxViT, DINO, DINOv2) and trained with different pretraining objectives (Imagenet classification, self supervised learning) ? 
+            <br \>
+            <br \>
+            We introduce a three step procedure to solve this problem:
+            <ol>
+              <li> <span style="font-variant: small-caps; font-size: larger; font-weight: bolder;">RepDecompose </span>:  Automatically <b>decompose</b> the final representation into <b>contributions</b> from different model components.</li>
+              <li> <span style="font-variant: small-caps; font-size: larger; font-weight: bolder;">CompAlign </span>:  Linearly <b>map</b> these contributions to <b>CLIP space</b> to interpret them using the CLIP text encoder</li>
+              <li> <span style="font-variant: small-caps; font-size: larger; font-weight: bolder;">CompAttribute </span>:    <b>Rank</b> components by their importance with respect to specific concepts by computing the <b>variance of the projection</b> of the contributions on the concept embeddings</li>
+            </ol>
+          </p>
+          <br>
+        </div>
+
+        
+
+        <h3 class="title is-4"> Retrieve images with reference to text or another image </h3>
+
+        <div class="content has-text-centered">
+            <img src="./static/images/img_based_img_retrieval_1.png" width="32%">
+            <img src="./static/images/img_based_img_retrieval_2.png" width="32%">
+            <img src="./static/images/img_based_img_retrieval_3.png" width="32%">
+        </div>
+
+
+        
+        <div class="content has-text-justified">
+          <p>
+            <ul>
+              <li>  Model components which are responsible for encoding a particular property can be used to retrieve images which are close to a given probe image wrt that property!</li>
+              <li>           We use the relevant component contributions (before the projection onto CLIP space) and sum them up, getting a <b>property-specific representation</b> of the image. This can then be used to retrieve image containing the same property.</li>
+             
+            </ul>
+          </p>
+          <br>
+        </div>
+
+
+        <h3 class="title is-4">Mitigate spurious correlations</h3>
+        <div class="content has-text-justified">
+          <div class="columns">
+            <div class="column is-half">
+              <span style="width: 10 cm; ">
+                <ul>
+
+                  <li> <b>Waterbirds</b> dataset has a spurious correlation between background and foreground attributes. Each image contains a bird (foreground) and a background scene. The task is to classify the bird species into 'waterbird' or 'landbird'. However, the background scene is highly correlated with the bird species, creating a spurious correlation.</li>
+
+                  <li> We can improve model performance on Waterbirds in a zero-shot manner simply by <b>mean-ablating</b> top-10 model components related to “location”!</li>
+                  <li> There is a significant increase in the worst group accuracy for all models, accompanied with an increase in the average group accuracy as well. </li>
+                </ul>
+                
+              </span>
+            </div>
+            <div class="column is-half">
+              <table style="width: 11cm; margin: 0 0 0 auto;">
+                <thead>
+                  <tr>
+                    <th style="width: 2cm;">Model name</th>
+                    <th style="width: 4.5cm;">Worst group<br>accuracy</th>
+                    <th style="width: 4.5cm;">Average group<br>accuracy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>DeiT</td>
+                    <td>0.733 → <b>0.815</b></td>
+                    <td>0.874 → <b>0.913</b></td>
+                  </tr>
+                  <tr>
+                    <td>CLIP</td>
+                    <td>0.507 → <b>0.744</b></td>
+                    <td>0.727 → <b>0.790</b></td>
+                  </tr>
+                  <tr>
+                    <td>DINO</td>
+                    <td>0.800 → <b>0.911</b></td>
+                    <td>0.900 → <b>0.938</b></td>
+                  </tr>
+                  <tr>
+                    <td>DINOv2</td>
+                    <td>0.967 → <b>0.978</b></td>
+                    <td>0.983 → <b>0.986</b></td>
+                  </tr>
+                  <tr>
+                    <td>SWIN</td>
+                    <td>0.834 → <b>0.871</b></td>
+                    <td>0.927 → <b>0.944</b></td>
+                  </tr>
+                  <tr>
+                    <td>MaxVit</td>
+                    <td>0.777 → <b>0.814</b></td>
+                    <td>0.875 → <b>0.887</b></td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="5" style="text-align: center;">Worst group accuracy and average group accuracy for Waterbirds dataset before and after intervention</td >
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <br>
+        <br>
+
+
+        <h3 class="title is-4">Visualizing token importance heatmaps (and segmenting images) </h3>
+
+        <div class="content has-text-centered">
+          <div class="columns">
+            <div class="column is-half">
+              <img src="./static/images/tok_imp_1.png" width="100%">
+            </div>
+            <div class="column is-half">
+              <img src="./static/images/tok_imp_2.png" width="100%">
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="content has-text-justified">
+          <p>
+            <ul>
+              <li> Each component contributioncan be further broken down into token-wise contributions. This can be used to visualize the importance of each token in the final representation with respect to a given property and/or component. </li>
+              <li> We can also use this to <b>segment</b> images in a zero-shot manner, similar to other saliency methods such as GradCam. </li>
+              <li> We <b>outperform</b> competitive saliency method baselines on segmenting ImageNet classes (see below table - Chefer et al.'s code does not support MaxVit or Swin). </li>
+            </ul>
+          </p>
+        </div> 
+
+        <div class="content has-text-justified">
+        <table style="border-collapse: separate; width: 100%;">
+          <thead>
+            <tr style="border-top: none;">
+              <th style="width: 100%;">Algorithm</th>
+              <th colspan="3" style="text-align: center;">DeiT</th>
+              <th colspan="3" style="text-align: center;">DINO</th>
+              <th colspan="3" style="text-align: center;">MaxViT</th>
+              <th colspan="3" style="text-align: center; ">SWIN</th>
+            </tr>
+            <tr style="border-top: none;">
+              <th></th>
+              <th>pixAcc</th>
+              <th>mIoU</th>
+              <th>mAP</th>
+              <th>pixAcc</th>
+              <th>mIoU</th>
+              <th>mAP</th>
+              <th>pixAcc</th>
+              <th>mIoU</th>
+              <th>mAP</th>
+              <th>pixAcc</th>
+              <th>mIoU</th>
+              <th>mAP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chefer et al</td>
+              <td>0.7307</td>
+              <td>0.4785</td>
+              <td>0.7870</td>
+              <td>0.7309</td>
+              <td>0.4541</td>
+              <td>0.8080</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>GradCam</td>
+              <td>0.6533</td>
+              <td>0.4625</td>
+              <td>0.7129</td>
+              <td>0.7045</td>
+              <td>0.4309</td>
+              <td>0.7481</td>
+              <td>0.4732</td>
+              <td>0.1705</td>
+              <td>0.4243</td>
+              <td>0.5973</td>
+              <td>0.2360</td>
+              <td>0.5365</td>
+            </tr>
+            <tr>
+              <td>Decompose</td>
+              <td><b>0.7719</b></td>
+              <td><b>0.5291</b></td>
+              <td><b>0.8305</b></td>
+              <td><b>0.7577</b></td>
+              <td><b>0.4863</b></td>
+              <td><b>0.8111</b></td>
+              <td><b>0.7163</b></td>
+              <td><b>0.4237</b></td>
+              <td><b>0.7237</b></td>
+              <td><b>0.7136</b></td>
+              <td><b>0.4338</b></td>
+              <td><b>0.7620</b></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        <br>  <br> <br>
+        <div class="content has-text-centered">
+          <p>
+            Read the paper for more details!
+          </p>
+        </div>
+        <!-- <p>Zero-shot segmentation results for different algorithms and models. Chefer at al 's code does not support MaxViT and SWIN models.</p> -->
+        <!-- Prompt Interpolation image -->
+        <!-- <h3 class="title is-4">(ii) <tt>WiCLP</tt> improves Cross-Attention Masks!</h3>
+        
+        <div class="container is-max-desktop has-text-centered">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/attention_visualizations/a blue backpack and a red bench.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/attention_visualizations/a green bench and a yellow dog.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/attention_visualizations/a red book and a yellow vase.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/attention_visualizations/a bathroom has brown wall and gold counters.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/attention_visualizations/a black cat sitting in a green bowl.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/attention_visualizations/a brown boat and a blue cat.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/attention_visualizations/a green blanket and a blue pillow.png"
+              class="interpolation-image"/>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="content has-text-justified">
+          <p>
+            [TODO] :-?
+          </p>
+          <br>
+        </div> -->
+        <!-- <br><br> -->
+
+        <!-- <h3 class="title is-4">(iii) <span style="font-variant: small-caps;">Switch-Off</span> enables <tt>WiCLP</tt> to preserve Model Utility!</h3>
+        <div class="container is-max-desktop has-text-centered">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a yellow boat and a blue dog.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a red book and a yellow vase.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/A bathroom has brown wall and gold counters.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a blue bear and a brown boat.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/A bathroom with green tile and a red shower curtain.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a red backpack and a blue book.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a blue cup and a red orange.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a green blanket and a blue pillow.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a metallic watch and a fluffy towel.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a white car and a red sheep.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/A red bathroom has a white towel on the bar.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a brown boat and a blue cat.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a plastic bag and a leather chair.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a green leaf and a yellow butterfly.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a pink elephant and a brown giraffe.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a red cup and a blue suitcase.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/switch_off_visualizations/a blue backpack and a red chair.png"
+              class="interpolation-image"/>
+            </div>
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Fine-tuning models or adding modules to a base model often results in a degradation of image quality and an increase in the Fréchet Inception Distance (FID) score.
+            To balance the trade-off between improved compositionality and the quality of generated images for clean prompts --an important issue in existing work-- Inspired by Hertz et al <sup><a href="https://arxiv.org/abs/2208.01626" target="_blank">[1]</a></sup>,
+            we adopt <span style="font-variant: small-caps;">Switch-Off</span>, where we apply the linear projection only during the initial steps of inference.
+            More precisely, given a time-step threshold &tau;, for <i>t </i> &geq; &tau;,
+            we use <tt>WiCLP</tt>, while for for <i>t </i> < &tau;,
+            we use the unchanged embedding (output of CLIP text encoder) as the input to the cross-attention layers.
+            As seen above, &tau; = 800 provides a correct compositional scene while preserving the quality.
+          </p>
+          <br>
+        </div> -->
+      </div>
+    </div>
+
+
+</div>
+  
+  </div>
+</section>
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title"><a id="bibtex">BibTeX</a></h2>
+    <pre><code>
+@inproceedings{
+  balasubramanian2024decomposing,
+  title={Decomposing and Interpreting Image Representations via Text in ViTs Beyond {CLIP}},
+  author={Sriram Balasubramanian and Samyadeep Basu and Soheil Feizi},
+  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+  year={2024},
+  url={https://openreview.net/forum?id=Vhh7ONtfvV}
+  }
+</code></pre>
+  </div>
+</section>
+
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website adapted from the following <a href="https://github.com/nerfies/nerfies.github.io">source code</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="juxtapose/js/juxtapose.js"></script>
+
+<script>
+var slider;
+let origImages = [
+  {"src": "./static/images/corgi_input.jpeg", "label": "Generated by SDXL-Diffusion2GAN (512px)",},
+  {"src": "./static/images/corgi_output.jpeg", "label": "8 x Upsampled by GigaGAN (4K)",}
+];
+let origOptions = {
+    "makeResponsive": true,
+    "showLabels": true,
+    "mode": "horizontal",
+    "showCredits": true,
+    "animate": true,
+    "startingPosition": "50"
+};
+
+const juxtaposeSelector = "#juxtapose-embed";
+const transientSelector = "#juxtapose-hidden";
+
+
+function tab_gallery_click(name) {
+  // Get the expanded image
+  let inputImage = {
+    label: "Generated by Diffusion2GAN (512px)",
+  };
+  let outputImage = {
+    label: "8 x Upsampled by GigaGAN (4K)",
+  };
+
+  inputImage.src = "./static/images/".concat(name, "_input.jpeg")
+  outputImage.src = "./static/images/".concat(name, "_output.jpeg")
+
+  let images = [inputImage, outputImage];
+  let options = slider.options;
+  options.callback = function(obj) {
+      var newNode = document.getElementById(obj.selector.substring(1));
+      var oldNode = document.getElementById(juxtaposeSelector.substring(1));
+      console.log(obj.selector.substring(1));
+      console.log(newNode.children[0]);
+      oldNode.replaceChild(newNode.children[0], oldNode.children[0]);
+      //newNode.removeChild(newNode.children[0]);
+      
+  };
+  
+  slider = new juxtapose.JXSlider(transientSelector, images, options);
+};
+
+
+
+(function() {
+    slider = new juxtapose.JXSlider(
+        juxtaposeSelector, origImages, origOptions);
+    //document.getElementById("left-button").onclick = replaceLeft;
+    //document.getElementById("right-button").onclick = replaceRight;
+})();
+  // Get the image text
+  var imgText = document.getElementById("imgtext");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  // expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = name;
+  // Show the container element (hidden with CSS)
+  // expandImg.parentElement.style.display = "block";
+
+$(".flip-card").click(function() {
+            console.log("fading in")
+            div_back = $(this).children().children()[1]
+            div_front = $(this).children().children()[0]
+            // console.log($(this).children("div.flip-card-back"))
+            console.log(div_back)
+            $(div_front).addClass("out");
+            $(div_front).removeClass("in");
+
+            $(div_back).addClass("in");
+            $(div_back).removeClass("out");
+
+});
+
+$(".flip-card").mouseleave(function() {
+            console.log("fading in")
+            div_back = $(this).children().children()[1]
+            div_front = $(this).children().children()[0]
+            // console.log($(this).children("div.flip-card-back"))
+            console.log(div_back)
+            $(div_front).addClass("in");
+            $(div_front).removeClass("out");
+
+            $(div_back).addClass("out");
+            $(div_back).removeClass("in");
+
+});
+
+</script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>    
 
 </body>
 </html>
