@@ -30,6 +30,7 @@ body {
 
 .publication-title {
   margin-top: -20px;
+  color: #f4d1ff;
 }
 
 .publication-banner {
@@ -53,12 +54,12 @@ body {
 }
 
 .publication-authors {
-    color: #000;
+    color: #ded9d9;
     font-family: 'Google Sans', sans-serif;
 }
 
 .publication-venue {
-    color: #000;
+    color: #ded9d9;
     font-weight: bold;
 }
 
@@ -72,7 +73,7 @@ body {
 }
 
 .publication-authors a {
-   color: hsl(204, 60%, 30%) !important;
+   color: hsl(202, 100%, 78%) !important;
 }
 
 .publication-authors a:hover {
@@ -190,7 +191,7 @@ body {
 }
 
 section.banner {
-  background-color: #d9b;
+  background-color: rgb(40, 35, 175);
   color: #f3a;
   background-position: center top;
   background-size: cover;
