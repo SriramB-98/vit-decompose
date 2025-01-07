@@ -18,6 +18,8 @@ You can download Imagenet-1000 from [here](https://huggingface.co/datasets/ILSVR
 
 For the Waterbirds experiments, you can find our cleaned Waterbirds datasets in ``dataset_archives/`` 
 
+CLIP aligner weights can be downloaded from [this link](https://drive.google.com/drive/folders/1LnkB6ncwRVeh5ZdckZ4qGQk8aP-yaguv?usp=sharing)
+
 ## Experiments
 
 1. Component ablation : ``python component_ablation.py``
